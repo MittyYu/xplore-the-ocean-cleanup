@@ -12,7 +12,7 @@ from prompt_generator import PromptGenerator
 
 
 if __name__=="__main__":
-    gen = PromptGenerator(["testloc1", "testloc2"], ['a', 'b', 'c'],  ['testorg3', 'testorg4'], 2)
+    gen = PromptGenerator(["testloc1", "testloc2"], ["a", "b", "c", "d", "e", "f", "g"],  ["testorg3", "testorg4"], 3)
     for _ in range(10):
         gen.sample()
         print(gen.build_prompt())
