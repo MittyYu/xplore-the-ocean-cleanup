@@ -32,12 +32,13 @@ class PromptGenerator:
 
 
     def sample(self):
-        self.loc = np.random.choice(self.loc_list)
-        self.org = np.random.choice(self.org_list)
-        self.items = ', '.join(np.random.choice(self.item_list, self.max_items))
+        self.loc = np.random.choice(self.loc_list, replace=False)
+        self.org = np.random.choice(self.org_list, replace=False)
+        self.items = ', '.join(np.random.choice(self.item_list, self.max_items,
+            replace=False))
         self.weight = np.random.rand() * (self.weight_range[1] - self.weight_range[0]) + \
             self.weight_range[0]
-        self.unit = np.random.choice(self.unit_list)
+        self.unit = np.random.choice(self.unit_list, replace=False)
         self.date = self.date_range[0] + timedelta(days=np.random.randint(
                     (self.date_range[1] - self.date_range[0]).days
                 )
